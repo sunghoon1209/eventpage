@@ -130,4 +130,42 @@ ul, li {
 }
 .restchance span, .sumBingo span {
   color: yellow;
+}
+
+#rock_area .btn_area {
+  display: flex;
+  gap: 1rem;
+}
+#rock_area .btn_area .button {
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 14px 24px;
+  font-size: 16px;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  box-shadow: 0 4px rgb(212, 120, 120);
+  width: 20%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+#rock_area .btn_area .button.active {
+  transform: translateY(2px);
+  box-shadow: 0 2px rgb(212, 120, 120);
+}
+#rock_area .btn_area .button.sccisor {
+  background: url("../../src/img/sccisor.png") no-repeat center/cover red;
+}
+#rock_area .btn_area .button.rock {
+  background: url("../../src/img/rock.png") no-repeat center/cover red;
+}
+#rock_area .btn_area .button.paper {
+  background: url("../../src/img/paper.png") no-repeat center/cover red;
+}
+#rock_area .btn_area .button.computer {
+  background-color: blue;
+  box-shadow: 0 2px rgb(12, 12, 48);
+  margin-left: auto;
+}
+#rock_area .btn_area .button.selected {
+  transform: scale(1.2);
 }/*# sourceMappingURL=style.css.map */

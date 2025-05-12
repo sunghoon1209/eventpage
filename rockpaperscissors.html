@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+  <div id="wrap">
+    <div id="rock_area" class="event_section">
+      <h2>가위바위보</h2>      
+      <div class="contents">
+        <div class="left_area"> 
+            <div class="btn_area">
+                <button class="button user sccisor" data-type="sccisor" type="button" ontouchstart></button>
+                <button class="button user rock" data-type="rock" type="button" ontouchstart></button>
+                <button class="button user paper" data-type="paper" type="button" ontouchstart></button>
+                <button class="button computer" type="button" ontouchstart></button>
+            </div>
+        </div>          
+      </div>      
+    </div>
+    <!-- 우측 이벤트 리스트 -->
+    <ul class="event_list">      
+        <li>BINGO</li>
+        <li>가위바위보</li>
+        <li>마블</li>      
+        <li>룰렛</li>
+        <li>뽑기</li>
+  </ul>
+</div>   
+
+<script>
+    const start = ()=>{
+        const typeArr = ['rock','sccisor','paper'];
+        const computerChoiceRandom = (type) =>{
+            const btnComputer = document.querySelector('button.computer');
+            const intervalId = setInterval(() => {            
+                const i = Math.floor(Math.random() * typeArr.length);
+                btnComputer.classList.remove(...typeArr);
+                btnComputer.classList.add(typeArr[i]);
+            }, 200); 
+
+            setTimeout(() => {
+                clearInterval(intervalId);
+                const btnComputer = document.querySelector('button.computer');
+                const computerType = btnComputer.classList[2];
+                let result;
+                if(type == typeArr[0]){ // 내가 낸게 주먹일떄
+                    switch (computerType) {
+                        case 'rock' :
+                            result = '무승부'
+                            break;
+                        case 'sccisor' :
+                            result = '승리'
+                            break;
+                        case 'paper' :
+                            result = '패배'
+                            break;
+                    }
+                }else if( type == typeArr[1]){ //가위일때
+                    switch (computerType) {
+                        case 'rock' :
+                            result = '패배'
+                            break;
+                        case 'sccisor' :
+                            result = '무승부'
+                            break;
+                        case 'paper' :
+                            result = '승리'
+                            break;
+                    }
+
+                }else if( type == typeArr[2]){ // 보일때
+                    switch (computerType) {
+                        case 'rock' :
+                            result = '승리'
+                            break;
+                        case 'sccisor' :
+                            result = '패배'
+                            break;
+                        case 'paper' :
+                            result = '무승부'
+                            break;
+                    }
+                    
+                }
+                alert(result);
+                document.querySelectorAll('button.user').forEach((button)=>{
+                    button.classList.remove('selected');
+                })
+            }, 3500);
+        };
+        
+        document.querySelectorAll('button.user').forEach((button)=>{    //버튼 클릭할때 시작함
+            button.addEventListener('click',(e)=>{                
+                const type = e.target.dataset.type; // 클릭된 버튼의 종류                
+                e.target.classList.add('selected');
+                computerChoiceRandom(type);                
+
+            })
+        })
+    }
+
+    start();
+</script>  
+</body>
+</html>

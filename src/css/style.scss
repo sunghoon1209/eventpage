@@ -145,3 +145,47 @@ ul,li{
     }
 }
 
+// 가위바위보 
+
+#rock_area{
+    .btn_area{
+        display: flex;
+        gap: 1rem;
+        .button {
+            background-color: red;
+            border: none;
+            color: white;
+            padding: 14px 24px;
+            font-size: 16px;                        
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+            box-shadow: 0 4px rgb(212, 120, 120);
+            width: 20%;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+
+            &.active{
+                transform: translateY(2px);
+                box-shadow: 0 2px rgb(212, 120, 120);
+            }
+
+            &.sccisor{
+                background: url("../../src/img/sccisor.png") no-repeat center/cover red;
+            }
+            &.rock{
+                background: url("../../src/img/rock.png") no-repeat center/cover red;
+            }
+            &.paper{
+                background: url("../../src/img/paper.png") no-repeat center/cover red;
+            }
+
+            &.computer{
+                background-color: blue;
+                box-shadow: 0 2px rgb(12, 12, 48);
+                margin-left: auto;
+            }
+            &.selected{
+                transform: scale(1.2);
+            }
+          }                         
+    }
+}
