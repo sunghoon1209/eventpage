@@ -1,0 +1,133 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul, li {
+  list-style: none;
+}
+
+@font-face {
+  font-family: "DungGeunMo";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@media screen and (orientation: landscape) {
+  body {
+    font-family: "DungGeunMo";
+  }
+  #wrap {
+    width: 100vw;
+    height: 100vh;
+    background: url("../img/bg.png") no-repeat center/cover;
+    display: flex;
+  }
+  .event_section {
+    flex-grow: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .event_section h2 {
+    color: #fff;
+    font-size: 2rem;
+    text-align: center;
+  }
+  .event_section .contents {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+  }
+  .event_section .contents .left_area {
+    width: 70%;
+    height: 100%;
+  }
+  .event_list {
+    width: 20%;
+    height: 100vh;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    background-color: rgba(0, 0, 255, 0.5);
+  }
+  .event_list li {
+    width: 100%;
+    font-size: 20px;
+    background: #fff;
+    padding: 10px;
+  }
+  .event_list li:nth-of-type(1) {
+    background: #0028ff;
+    color: #fff;
+  }
+  .event_list li:nth-of-type(2) {
+    background: #ffcc00;
+    color: #000;
+  }
+  .event_list li:nth-of-type(3) {
+    background: #ff5e57;
+    color: #fff;
+  }
+  .event_list li:nth-of-type(4) {
+    background: #8e44ad;
+    color: #fff;
+  }
+}
+.bingoBoard {
+  height: 100%;
+  aspect-ratio: 1/1;
+  background: #fff;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+.bingoBoard td {
+  width: auto;
+  aspect-ratio: 1/1;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #333;
+  border: 2px solid #000;
+  box-shadow: inset -2px -2px 0 #000, inset 2px 2px 0 #666;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.bingoBoard td:hover {
+  background-color: #555;
+}
+.bingoBoard td.selected {
+  background-color: #00c6ff;
+  color: #000;
+  pointer-events: none;
+}
+.bingoBoard td.bingo {
+  background-color: #ff0066;
+  color: #fff;
+  text-shadow: 1px 1px 0 #000;
+}
+
+.right_area {
+  flex-grow: 1;
+}
+
+.restchance, .sumBingo {
+  width: 100%;
+  margin-left: auto;
+  font-size: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+}
+.restchance span, .sumBingo span {
+  color: yellow;
+}/*# sourceMappingURL=style.css.map */
