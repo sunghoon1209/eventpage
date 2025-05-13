@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+  <div id="wrap">
+    <div id="bingo_area" class="event_section">
+      <h2>뽑기</h2> 
+      <p class="rest">남은수량 :</p>     
+      <div class="contents">    
+        <div id="gacha">          
+            <ul class="gacha">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+                <li>11</li>
+                <li>12</li>
+                <li>13</li>
+                <li>14</li>
+                <li>15</li>
+                <li>16</li>
+                <li>17</li>
+                <li>18</li>
+                <li>19</li>
+                <li>20</li>                
+                <li>21</li>
+                <li>22</li>
+                <li>23</li>
+                <li>24</li>
+                <li>25</li>
+                <li>26</li>
+                <li>27</li>
+                <li>28</li>
+                <li>29</li>
+                <li>30</li>
+                <li>31</li>
+                <li>32</li>
+                <li>33</li>
+                <li>34</li>
+                <li>35</li>
+                <li>36</li>
+                <li>37</li>
+                <li>38</li>
+                <li>39</li>
+                <li>40</li>
+            </ul>
+        </div>               
+         
+      </div>
+
+
+     
+      
+
+    </div>
+  <!-- 우측 이벤트 리스트 -->
+    <ul class="event_list">      
+      <li>BINGO</li>
+      <li>가위바위보</li>
+      <li>마블</li>      
+      <li>룰렛</li>
+      <li>뽑기</li>
+    </ul>
+  </div>  
+
+<script>
+    const gacha = () => {
+        const chance = {SSS: 1 , SS : 5 , S : 7 , A : 12 , B: 15 }  //남은 상품 수량
+        const restView = document.querySelector('.rest');
+      
+        document.querySelectorAll('.gacha li').forEach(li=>{
+            li.addEventListener('click', (e)=>{
+              console.log(chance);
+              const total = Object.values(chance).reduce((sum, count)=> sum + count, 0);
+              const rand = Math.floor(Math.random() * total)+1;
+              let cumulative = 0;
+              let result = null;
+                for (const [key, value] of Object.entries(chance)) {
+                  cumulative += value;
+                  if (rand <= cumulative) {
+                    result = key;
+                    break;
+                  }
+                }
+                if (chance[result] > 0) {
+                  chance[result] -= 1;
+                }                
+                console.log('뽑힌 상품:', result);
+                e.target.classList.add(result,'selected');
+                e.target.textContent = result;
+                restView.textContent = JSON.stringify(chance);
+                
+            })
+        })
+    }
+    gacha();
+</script>  
+</body>
+</html>

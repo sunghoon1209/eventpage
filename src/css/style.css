@@ -42,7 +42,6 @@ ul, li {
     justify-content: center;
     width: 100%;
     height: 100%;
-    padding: 1rem;
   }
   .event_section .contents .left_area {
     width: 70%;
@@ -168,4 +167,85 @@ ul, li {
 }
 #rock_area .btn_area .button.selected {
   transform: scale(1.2);
+  pointer-events: none;
+}
+
+#roulette-container {
+  width: 40%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+}
+#roulette-container .pin {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) rotate(180deg);
+  z-index: 2;
+  background: url("../../src/img/pin.png") no-repeat center/cover;
+}
+#roulette-container .roulett {
+  background: url("../../src/img/roul_bg.png") no-repeat center/cover;
+  width: 100%;
+  height: 100%;
+  transition: 1s;
+}
+#roulette-container button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: none;
+}
+
+#gacha {
+  width: 100%;
+}
+#gacha .gacha {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+#gacha .gacha li {
+  background: #fff;
+  width: 10%;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.7s;
+  position: relative;
+}
+#gacha .gacha li.selected {
+  pointer-events: none;
+}
+#gacha .gacha li.selected.SSS {
+  background: gold;
+  color: #fff;
+}
+#gacha .gacha li.selected.SS {
+  background: #C0C0C0;
+  color: #000;
+}
+#gacha .gacha li.selected.S {
+  background: #cd7f32;
+  color: #fff;
+}
+#gacha .gacha li.selected.A {
+  background: #4caf50;
+  color: #fff;
+}
+#gacha .gacha li.selected.B {
+  background: #90a4ae;
+  color: #fff;
+}
+#gacha .gacha li.selected.C {
+  background: #000;
+  color: #fff;
 }/*# sourceMappingURL=style.css.map */
