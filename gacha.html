@@ -68,7 +68,7 @@
     <ul class="event_list">      
       <li><a href="Bingo.html">BINGO</a></li>
       <li><a href="rockpaperscissors.html">가위바위보</a></li>
-      <li><a href="">마블</a></li>      
+      <li><a href="marble.html">마블</a></li>           
       <li><a href="">룰렛</a></li>
       <li><a href="gacha.html">뽑기</a></li>
     </ul>
@@ -84,9 +84,7 @@
         let restA;
         let restB; 
         document.querySelectorAll('.gacha li').forEach(li=>{
-            li.addEventListener('click', (e)=>{
-              console.log(chance);
-              
+            li.addEventListener('click', (e)=>{                            
               const total = Object.values(chance).reduce((sum, count)=> sum + count, 0);
               const rand = Math.floor(Math.random() * total)+1;
               let cumulative = 0;
