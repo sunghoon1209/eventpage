@@ -78,10 +78,15 @@
     const gacha = () => {
         const chance = {SSS: 1 , SS : 5 , S : 7 , A : 12 , B: 15 }  //남은 상품 수량
         const restView = document.querySelector('.rest');
-      
+        let restSSS;
+        let restSS;
+        let restS;
+        let restA;
+        let restB; 
         document.querySelectorAll('.gacha li').forEach(li=>{
             li.addEventListener('click', (e)=>{
               console.log(chance);
+              
               const total = Object.values(chance).reduce((sum, count)=> sum + count, 0);
               const rand = Math.floor(Math.random() * total)+1;
               let cumulative = 0;
@@ -99,8 +104,12 @@
                 console.log('뽑힌 상품:', result);
                 e.target.classList.add(result,'selected');
                 e.target.textContent = result;
-                restView.textContent = JSON.stringify(chance);
-                
+                restSSS = chance.SSS;
+                restSS = chance.SS;
+                restS = chance.S;
+                restA = chance.A;
+                restB = chance.B;
+                restView.textContent =`남은수량: SSS:${restSSS}, ss: ${restSS}, s: ${restS},A:${restA},B:${restB}`
             })
         })
     }

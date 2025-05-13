@@ -228,6 +228,19 @@ ul, li {
 #gacha .gacha li.selected.SSS {
   background: gold;
   color: #fff;
+  animation: sss-glow 1s infinite alternate;
+}
+@keyframes sss-glow {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 40px gold;
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
 }
 #gacha .gacha li.selected.SS {
   background: #C0C0C0;
